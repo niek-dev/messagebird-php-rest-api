@@ -8,8 +8,8 @@ use MessageBird\Objects\Base;
 class MessageContentWhatsAppSticker extends Base implements JsonSerializable
 {
 
-    /** @var string  */
-    public string $link;
+    /** @var string $link */
+    public $link;
 
     /**
      * @return array

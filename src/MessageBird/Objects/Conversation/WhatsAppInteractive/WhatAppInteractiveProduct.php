@@ -10,7 +10,7 @@ class WhatAppInteractiveProduct extends Base implements JsonSerializable
 {
 
     /** @var string $product_retailer_id */
-    public string $product_retailer_id;
+    public $product_retailer_id;
 
     /**
      * @return array

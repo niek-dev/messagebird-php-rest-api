@@ -24,49 +24,49 @@ class MessageContent extends Base implements JsonSerializable
     public const TYPE_WHATSAPP_STICKER = 'whatsappSticker';
 
     /**
-     * @var MessageContentMedia
+     * @var MessageContentMedia $audio
      */
-    public MessageContentMedia $audio;
+    public $audio;
 
     /**
-     * @var MessageContentMedia
+     * @var MessageContentMedia $file
      */
-    public MessageContentMedia $file;
+    public $file;
 
     /**
-     * @var MessageContentMedia
+     * @var MessageContentMedia $image
      */
-    public MessageContentMedia $image;
+    public $image;
 
     /**
-     * @var MessageContentMedia
+     * @var MessageContentMedia $video
      */
-    public MessageContentMedia $video;
+    public $video;
 
     /**
-     * @var MessageContentLocation
+     * @var MessageContentLocation $location
      */
-    public MessageContentLocation $location;
+    public $location;
 
     /**
-     * @var string
+     * @var string $text
      */
-    public string $text;
+    public $text;
 
     /**
-     * @var HSMMessage
+     * @var HSMMessage $hsm
      */
-    public HSMMessage $hsm;
+    public $hsm;
 
     /**
-     * @var MessageContentWhatsAppInteractive
+     * @var MessageContentWhatsAppInteractive $interactive
      */
-    public MessageContentWhatsAppInteractive $interactive;
+    public $interactive;
 
     /**
-     * @var MessageContentWhatsAppSticker
+     * @var MessageContentWhatsAppSticker $whatsappSticker
      */
-    public MessageContentWhatsAppSticker $whatsappSticker;
+    public $whatsappSticker;
 
 
     /**

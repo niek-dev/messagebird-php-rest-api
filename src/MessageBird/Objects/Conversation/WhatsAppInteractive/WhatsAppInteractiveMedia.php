@@ -8,9 +8,9 @@ use MessageBird\Objects\Base;
 class WhatsAppInteractiveMedia extends Base implements JsonSerializable
 {
     /** @var string  */
-    public string $url;
+    public $url;
     /** @var string  */
-    public string $caption;
+    public $caption;
 
     /**
      * @return array

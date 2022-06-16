@@ -20,15 +20,15 @@ class WhatsAppInteractiveHeader extends Base implements JsonSerializable
      *
      * @var string
      */
-    public string $type;
+    public $type;
     /** @var string  */
-    public string $text;
+    public $text;
     /** @var WhatsAppInteractiveMedia  */
-    public WhatsAppInteractiveMedia $video;
+    public $video;
     /** @var WhatsAppInteractiveMedia  */
-    public WhatsAppInteractiveMedia $image;
+    public $image;
     /** @var WhatsAppInteractiveMedia  */
-    public WhatsAppInteractiveMedia $document;
+    public $document;
 
     /**
      * @inheritDoc

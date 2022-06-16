@@ -10,11 +10,11 @@ use stdClass;
 class WhatAppInteractiveSection extends Base implements JsonSerializable
 {
     /** @var string $title */
-    public string $title;
+    public $title;
     /** @var WhatAppInteractiveSectionRow[] $rows  */
-    public array $rows;
+    public $rows;
     /** @var WhatAppInteractiveProduct[] $product_items */
-    public array $product_items;
+    public $product_items;
 
     /**
      * @inheritDoc

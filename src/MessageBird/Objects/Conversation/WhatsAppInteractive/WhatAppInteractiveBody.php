@@ -10,7 +10,7 @@ class WhatAppInteractiveBody extends Base implements JsonSerializable
 {
 
     /** @var string  */
-    public string $text;
+    public $text;
 
     /**
      * @return array

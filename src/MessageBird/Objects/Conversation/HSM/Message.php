@@ -10,22 +10,22 @@ class Message extends Base implements JsonSerializable
     /**
      * @var string $namespace
      */
-    public string $namespace;
+    public $namespace;
 
     /**
      * @var string $templateName
      */
-    public string $templateName;
+    public $templateName;
 
     /**
      * @var Language $language
      */
-    public Language $language;
+    public $language;
 
     /**
      * @var Params[] $params
      */
-    public array $params;
+    public $params;
 
 
     /**

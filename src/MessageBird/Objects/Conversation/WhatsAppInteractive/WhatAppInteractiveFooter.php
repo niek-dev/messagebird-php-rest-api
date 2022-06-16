@@ -10,7 +10,7 @@ class WhatAppInteractiveFooter extends Base implements JsonSerializable
 {
 
     /** @var string $text */
-    public string $text;
+    public $text;
 
     /**
      * @return array

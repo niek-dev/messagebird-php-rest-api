@@ -7,26 +7,26 @@ use MessageBird\Objects\Base;
 
 class WebhookSettings extends Base implements JsonSerializable
 {
-    /** @var string */
-    public string $expected_http_code;
+    /** @var string $expected_http_code */
+    public $expected_http_code;
 
-    /** @var string */
-    public string $headers;
+    /** @var string $headers*/
+    public $headers;
 
-    /** @var string */
-    public string $username;
+    /** @var string $username*/
+    public $username;
 
-    /** @var string */
-    public string $password;
+    /** @var string $password*/
+    public $password;
 
-    /** @var string */
-    public string $query_params;
+    /** @var string $query_params*/
+    public $query_params;
 
-    /** @var int */
-    public int $retry;
+    /** @var int $retry*/
+    public $retry;
 
-    /** @var int */
-    public int $timeout;
+    /** @var int $timeout*/
+    public $timeout;
 
     /**
      * Serialize only non empty fields.

@@ -10,13 +10,13 @@ class WhatAppInteractiveButton extends Base implements JsonSerializable
 {
 
     /** @var string $id */
-    public string $id;
+    public $id;
     /** @var string $type */
-    public string $type;
+    public $type;
     /** @var string $title */
-    public string $title;
+    public $title;
     /** @var string $image_url */
-    public string $image_url;
+    public $image_url;
 
     /**
      * @return array

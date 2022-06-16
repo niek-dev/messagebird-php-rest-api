@@ -8,11 +8,11 @@ use MessageBird\Objects\Base;
 class MessageContentLocation extends Base implements JsonSerializable
 {
 
-    /** @var string  */
-    public string $latitude;
+    /** @var string $latitude */
+    public $latitude;
 
-    /** @var string  */
-    public string $longitude;
+    /** @var string $longitude */
+    public $longitude;
 
     /**
      * @return array

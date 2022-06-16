@@ -11,15 +11,15 @@ class WhatAppInteractiveAction extends Base implements JsonSerializable
 {
 
     /** @var string $catalog_id*/
-    public string $catalog_id;
+    public $catalog_id;
     /** @var string $product_retailer_id */
-    public string $product_retailer_id;
+    public $product_retailer_id;
     /** @var WhatAppInteractiveSection[] $sections  */
-    public array $sections;
+    public $sections;
     /** @var string $button */
-    public string $button;
+    public $button;
     /** @var WhatAppInteractiveButton[] $buttons  */
-    public array $buttons;
+    public $buttons;
 
     /**
      * @inheritDoc

@@ -10,11 +10,11 @@ class WhatAppInteractiveSectionRow extends Base implements JsonSerializable
 {
 
     /** @var string  */
-    public string $id;
+    public $id;
     /** @var string  */
-    public string $title;
+    public $title;
     /** @var string  */
-    public string $description;
+    public $description;
 
     /**
      * @return array

@@ -8,11 +8,11 @@ use MessageBird\Objects\Base;
 class MessageContentMedia extends Base implements JsonSerializable
 {
 
-    /** @var string  */
-    public string $url;
+    /** @var string $url */
+    public $url;
 
-    /** @var string  */
-    public string $caption;
+    /** @var string $caption */
+    public $caption;
 
     /**
      * @return array

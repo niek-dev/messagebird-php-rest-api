@@ -21,22 +21,22 @@ class MessageContentWhatsAppInteractive extends Base implements JsonSerializable
      *
      * @var string $type
      */
-    public string $type;
+    public $type;
 
     /** @var WhatsAppInteractiveHeader $header */
-    public WhatsAppInteractiveHeader $header;
+    public $header;
 
     /** @var WhatAppInteractiveBody $body */
-    public WhatAppInteractiveBody $body;
+    public $body;
 
     /** @var WhatAppInteractiveAction $action */
-    public WhatAppInteractiveAction $action;
+    public $action;
 
     /** @var WhatAppInteractiveFooter $footer */
-    public WhatAppInteractiveFooter $footer;
+    public $footer;
 
     /** @var WhatAppInteractiveReply $reply */
-    public WhatAppInteractiveReply $reply;
+    public $reply;
 
     /**
      * @inheritDoc

@@ -10,11 +10,11 @@ class WhatAppInteractiveReply extends Base implements JsonSerializable
 {
 
     /** @var string $id */
-    public string $id;
+    public $id;
     /** @var string $text */
-    public string $text;
+    public $text;
     /** @var string $description */
-    public string $description;
+    public $description;
 
     /**
      * @return array
