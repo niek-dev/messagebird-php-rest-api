@@ -2,8 +2,6 @@
 
 namespace MessageBird\Objects;
 
-use stdClass;
-
 /**
  * Class Recipients
  *
@@ -38,7 +36,7 @@ class Recipients extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param $object
      *
      * @return $this|void
@@ -57,7 +55,7 @@ class Recipients extends Base
         return $this;
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

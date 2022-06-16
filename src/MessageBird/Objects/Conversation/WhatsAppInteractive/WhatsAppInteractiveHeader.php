@@ -65,7 +65,7 @@ class WhatsAppInteractiveHeader extends Base implements JsonSerializable
      * @param stdClass $object
      * @return $this
      */
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

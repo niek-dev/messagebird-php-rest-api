@@ -2,8 +2,6 @@
 
 namespace MessageBird\Objects;
 
-use stdClass;
-
 /**
  * Class Lookup
  *
@@ -120,7 +118,7 @@ class Lookup extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
      *
      * @return $this
@@ -131,7 +129,7 @@ class Lookup extends Base
         return parent::loadFromArray($object);
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         unset($this->hlr);
         return parent::loadFromStdclass($object);

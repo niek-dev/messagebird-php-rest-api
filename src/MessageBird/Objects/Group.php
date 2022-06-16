@@ -93,7 +93,7 @@ class Group extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
      *
      * @return $this|void
@@ -103,7 +103,7 @@ class Group extends Base
         return parent::loadFromArray($object);
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         return parent::loadFromStdclass($object);
     }

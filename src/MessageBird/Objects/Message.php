@@ -154,9 +154,9 @@ class Message extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
-     * 
+     *
      * @return self
      */
     public function loadFromArray($object): self
@@ -176,10 +176,10 @@ class Message extends Base
     }
 
     /**
-     * @param stdClass $object 
-     * @return self 
+     * @param stdClass $object
+     * @return self
      */
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

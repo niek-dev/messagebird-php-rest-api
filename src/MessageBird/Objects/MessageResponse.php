@@ -2,8 +2,6 @@
 
 namespace MessageBird\Objects;
 
-use stdClass;
-
 /**
  * Class Message
  *
@@ -128,7 +126,7 @@ class MessageResponse extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
      */
     public function loadFromArray($object): MessageResponse
@@ -141,7 +139,7 @@ class MessageResponse extends Base
         return $this;
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

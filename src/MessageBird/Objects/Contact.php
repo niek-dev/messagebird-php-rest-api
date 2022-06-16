@@ -147,7 +147,7 @@ class Contact extends Base
         return parent::loadFromArray($object);
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         unset($this->custom1, $this->custom2, $this->custom3, $this->custom4);
 

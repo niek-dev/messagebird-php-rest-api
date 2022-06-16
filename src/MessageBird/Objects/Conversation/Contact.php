@@ -3,7 +3,6 @@
 namespace MessageBird\Objects\Conversation;
 
 use MessageBird\Objects\Base;
-use stdClass;
 
 /**
  * Represents a counterparty with who messages can be exchanged.
@@ -86,7 +85,7 @@ class Contact extends Base
         return $this;
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

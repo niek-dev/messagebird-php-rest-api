@@ -3,7 +3,6 @@
 namespace MessageBird\Objects\Conversation;
 
 use MessageBird\Objects\Base;
-use stdClass;
 
 /**
  * A conversation is the view of all messages between you and a customer across
@@ -135,7 +134,7 @@ class Conversation extends Base
         return $this;
     }
 
-    public function loadFromStdclass(stdClass $object): Conversation
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

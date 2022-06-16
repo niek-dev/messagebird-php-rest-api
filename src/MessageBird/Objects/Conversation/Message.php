@@ -4,7 +4,6 @@ namespace MessageBird\Objects\Conversation;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
-use stdClass;
 
 /**
  * Messages that have been sent by, or received from, a customer are
@@ -136,7 +135,7 @@ class Message extends Base implements JsonSerializable
      * @param $object
      * @return $this
      */
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

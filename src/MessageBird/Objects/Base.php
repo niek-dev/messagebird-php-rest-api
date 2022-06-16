@@ -34,7 +34,7 @@ class Base
      * @param stdClass $object
      * @return self
      */
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass($object): self
     {
         foreach ($object as $key => $value) {
             if (property_exists($this, $key)) {

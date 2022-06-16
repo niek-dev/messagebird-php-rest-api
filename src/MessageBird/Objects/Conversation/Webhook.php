@@ -107,7 +107,7 @@ class Webhook extends Base implements JsonSerializable
      * @param stdClass $object
      * @return self
      */
-    public function loadFromStdclass(stdClass $object): Base
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 

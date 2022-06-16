@@ -58,7 +58,7 @@ class WhatAppInteractiveSection extends Base implements JsonSerializable
      * @param stdClass $object
      * @return Base
      */
-    public function loadFromStdclass(stdClass $object): Base
+    public function loadFromStdclass($object): self
     {
         parent::loadFromStdclass($object);
 
