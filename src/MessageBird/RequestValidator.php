@@ -123,12 +123,12 @@ class RequestValidator
      * @param string $signature the actual signature taken from request header "MessageBird-Signature-JWT".
      * @param string $url the raw url including the protocol, hostname and query string, {@code https://example.com/?example=42}.
      * @param string $body the raw request body.
+     * @param int $jwtLeeway the JWT leeway
      * @return object JWT token payload
      * @throws ValidationException if signature validation fails.
-     *
      * @see https://developers.messagebird.com/docs/verify-http-requests
      */
-    public function validateSignature(string $signature, string $url, string $body)
+    public function validateSignature(string $signature, string $url, string $body, int $jwtLeeway = 1)
     {
         if (empty($signature)) {
             throw new ValidationException("Signature cannot be empty.");
@@ -137,7 +137,7 @@ class RequestValidator
             throw new ValidationException("URL cannot be empty");
         }
 
-        JWT::$leeway = 1;
+        JWT::$leeway = $jwtLeeway;
         try {
             $decoded = JWT::decode($signature, $this->signingKey, self::ALLOWED_ALGOS);
         } catch (\InvalidArgumentException | \UnexpectedValueException | SignatureInvalidException $e) {
