@@ -12,13 +12,13 @@ use stdClass;
 class Base
 {
     /**
-     * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
      * @param mixed $object
      *
      * @return self
+     * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
+     *
      */
-    public function loadFromArray($object)
+    public function loadFromArray($object): self
     {
         if ($object) {
             foreach ($object as $key => $value) {
@@ -34,13 +34,15 @@ class Base
      * @param stdClass $object
      * @return self
      */
-    public function loadFromStdclass(stdClass $object)
+    public function loadFromStdclass(stdClass $object): self
     {
         foreach ($object as $key => $value) {
             if (property_exists($this, $key)) {
                 $this->$key = $value;
             }
         }
+
         return $this;
     }
+
 }

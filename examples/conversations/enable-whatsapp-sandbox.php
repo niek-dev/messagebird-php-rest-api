@@ -12,7 +12,7 @@ $messageBird = new \MessageBird\Client('YOUR_ACCESS_KEY', null, [\MessageBird\Cl
 
 // Use WhatsApp sandbox channel as normal.
 
-$content = new \MessageBird\Objects\Conversation\Content();
+$content = new \MessageBird\Objects\Conversation\MessageContent();
 $content->text = 'Hello world';
 
 $message = new \MessageBird\Objects\Conversation\Message();

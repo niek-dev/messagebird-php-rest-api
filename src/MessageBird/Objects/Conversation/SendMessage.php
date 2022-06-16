@@ -37,7 +37,7 @@ class SendMessage extends Base implements JsonSerializable
     /**
      * Content of the message. Implementation dependent on this message's type.
      *
-     * @var Content
+     * @var MessageContent
      */
     public $content;
 

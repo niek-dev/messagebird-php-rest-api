@@ -21,7 +21,7 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $id;
+    public string $id;
 
     /**
      * The unique ID that identifies the conversation that this message is a
@@ -29,7 +29,7 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $conversationId;
+    public string $conversationId;
 
     /**
      * The unique ID that identifies the channel that the message is sent or
@@ -37,7 +37,7 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $channelId;
+    public string $channelId;
 
     /**
      * The direction of the message. Either 'sent' (mobile-terminated) for
@@ -46,7 +46,7 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $direction;
+    public string $direction;
 
     /**
      * The status of the message. Possible values: "pending", "received",
@@ -55,7 +55,7 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $status;
+    public string $status;
 
     /**
      * Type of this message's content. Possible values: "text", "image",
@@ -63,14 +63,14 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $type;
+    public string $type;
 
     /**
      * Content of the message. Implementation dependent on this message's type.
      *
-     * @var Content
+     * @var MessageContent
      */
-    public $content;
+    public MessageContent $content;
 
     /**
      * Identifier for the receiver. For example the phone number (MSISDN) for
@@ -78,14 +78,28 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $to;
+    public string $to;
+
+    /**
+     * The unique ID that identifies the message sender. The value depends on platform.
+     *
+     * @var string
+     */
+    public string $from;
+
+    /**
+     * A JSON-formatted object that can be used to identify the source of the message.
+     *
+     * @var array
+     */
+    public array $source;
 
     /**
      * The date and time when this message was first created in RFC3339 format.
      *
      * @var string
      */
-    public $createdDatetime;
+    public string $createdDatetime;
 
     /**
      * The date and time when this message was most recently updated in
@@ -93,40 +107,54 @@ class Message extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $updatedDatetime;
+    public string $updatedDatetime;
 
     /**
-     * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
-     * @param mixed $object
+     * @inheritDoc
+     * @param $object
+     * @return $this
      */
     public function loadFromArray($object): Message
     {
         parent::loadFromArray($object);
 
-        $content = new Content();
-        $content->loadFromArray($this->content);
-
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function loadFromStdclass(stdClass $object): self
-    {
-        parent::loadFromStdclass($object);
-
-        if (property_exists($object, 'content')) {
-            $content = new Content();
-            $content->loadFromStdclass($object->content);
+        if (!empty($object->content)) {
+            $content = new MessageContent();
+            $content->loadFromArray($object->content);
             $this->content = $content;
+        }
+
+        if (!empty($object->source)) {
+            $this->source = json_decode(json_encode($object->source), true);
         }
 
         return $this;
     }
 
     /**
-     * Serialize only non empty fields.
+     * @inheritDoc
+     * @param $object
+     * @return $this
+     */
+    public function loadFromStdclass(stdClass $object): self
+    {
+        parent::loadFromStdclass($object);
+
+        if (!empty($object->content)) {
+            $content = new MessageContent();
+            $content->loadFromStdclass($object->content);
+            $this->content = $content;
+        }
+
+        if (!empty($object->source)) {
+            $this->source = json_decode(json_encode($object->source), true);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return array
      */
     public function jsonSerialize(): array
     {

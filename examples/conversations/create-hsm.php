@@ -23,7 +23,7 @@ $hsm->namespace = 'YOUR NAMESPACE';
 $hsm->params = [$hsmParam1, $hsmParam2];
 $hsm->language = $hsmLanguage;
 
-$content = new \MessageBird\Objects\Conversation\Content();
+$content = new \MessageBird\Objects\Conversation\MessageContent();
 $content->hsm = $hsm;
 
 $message = new \MessageBird\Objects\Conversation\Message();

@@ -2,8 +2,8 @@
 
 namespace Tests\Integration\Conversation;
 
-use MessageBird\Objects\Conversation\Content;
 use MessageBird\Objects\Conversation\Message;
+use MessageBird\Objects\Conversation\MessageContent;
 use Tests\Integration\BaseTest;
 
 class ConversationMessageTest extends BaseTest
@@ -60,7 +60,7 @@ class ConversationMessageTest extends BaseTest
             )
             ->willReturn([200, '', '{}']);
 
-        $content = new Content();
+        $content = new MessageContent();
         $content->image = [
             'url' => 'https://developers.messagebird.com/assets/images/glyph.svg',
         ];
@@ -85,7 +85,7 @@ class ConversationMessageTest extends BaseTest
             )
             ->willReturn([200, '', '{}']);
 
-        $content = new Content();
+        $content = new MessageContent();
         $content->location = [
             'latitude' => '52.379112',
             'longitude' => '4.900384',
@@ -111,7 +111,7 @@ class ConversationMessageTest extends BaseTest
             )
             ->willReturn([200, '', '{}']);
 
-        $content = new Content();
+        $content = new MessageContent();
         $content->text = 'Hello world';
 
         $message = new Message();
@@ -129,7 +129,7 @@ class ConversationMessageTest extends BaseTest
              ->with('POST', 'conversations/genid/messages', null, '{"type":"text","content":{"text":"Hello world"}}')
              ->willReturn([200, '', '{}']);
 
-        $content = new Content();
+        $content = new MessageContent();
         $content->text = 'Hello world';
 
         $message = new Message();
@@ -163,7 +163,7 @@ class ConversationMessageTest extends BaseTest
 
         $message = $this->client->conversationMessages->getList('genid')->items[0];
 
-        $expectedContent = new Content();
+        $expectedContent = new MessageContent();
         $expectedContent->video = [
             'url' => 'https://developers.messagebird.com/assets/videos/foo.mp4',
         ];
@@ -191,7 +191,7 @@ class ConversationMessageTest extends BaseTest
 
         $message = $this->client->conversationMessages->read('message-id');
 
-        $expectedContent = new Content();
+        $expectedContent = new MessageContent();
         $expectedContent->video = [
             'url' => 'https://developers.messagebird.com/assets/videos/foo.mp4',
         ];

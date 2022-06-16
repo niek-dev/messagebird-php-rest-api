@@ -24,21 +24,21 @@ class Conversation extends Base
      *
      * @var string
      */
-    public $id;
+    public string $id;
 
     /**
      * The URL of this conversation object.
      *
      * @var string
      */
-    public $href;
+    public string $href;
 
     /**
      * The expanded contact for this conversation.
      *
      * @var Contact
      */
-    public $contact;
+    public Contact $contact;
 
     /**
      * Associative array of Channels that the contact of this conversation can
@@ -46,7 +46,7 @@ class Conversation extends Base
      *
      * @var Channel[]
      */
-    public $channels;
+    public array $channels;
 
     /**
      * The status of this conversation. This can be either 'active' or
@@ -54,7 +54,7 @@ class Conversation extends Base
      *
      * @var string
      */
-    public $status;
+    public string $status;
 
     /**
      * Object that references the messages and the count belonging to this
@@ -62,14 +62,14 @@ class Conversation extends Base
      *
      * @var MessageReference
      */
-    public $messages;
+    public MessageReference $messages;
 
     /**
      * Unique ID that references the last channel used for this conversation.
      *
      * @var string
      */
-    public $lastUsedChannelId;
+    public string $lastUsedChannelId;
 
     /**
      * The date and time when the most recent message was added to this
@@ -77,7 +77,7 @@ class Conversation extends Base
      *
      * @var string
      */
-    public $lastReceivedDatetime;
+    public string $lastReceivedDatetime;
 
     /**
      * The date and time when this conversation was first created in RFC3339
@@ -85,7 +85,7 @@ class Conversation extends Base
      *
      * @var string
      */
-    public $createdDatetime;
+    public string $createdDatetime;
 
     /**
      * The date and time when this conversation was most recently updated in
@@ -94,11 +94,11 @@ class Conversation extends Base
      *
      * @var string
      */
-    public $updatedDatetime;
+    public string $updatedDatetime;
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
      */
     public function loadFromArray($object): Conversation
@@ -135,7 +135,7 @@ class Conversation extends Base
         return $this;
     }
 
-    public function loadFromStdclass(stdClass $object): self
+    public function loadFromStdclass(stdClass $object): Conversation
     {
         parent::loadFromStdclass($object);
 

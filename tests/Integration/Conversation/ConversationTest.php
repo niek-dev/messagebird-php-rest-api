@@ -5,9 +5,9 @@ namespace Tests\Integration\Conversation;
 use MessageBird\Objects\BaseList;
 use MessageBird\Objects\Conversation\Channel;
 use MessageBird\Objects\Conversation\Contact;
-use MessageBird\Objects\Conversation\Content;
 use MessageBird\Objects\Conversation\Conversation;
 use MessageBird\Objects\Conversation\Message;
+use MessageBird\Objects\Conversation\MessageContent;
 use MessageBird\Objects\Conversation\MessageReference;
 use Tests\Integration\BaseTest;
 
@@ -103,7 +103,7 @@ class ConversationTest extends BaseTest
              ->with('POST', 'conversations/start', null, self::START_REQUEST)
              ->willReturn([200, '', '{}']);
 
-        $content = new Content();
+        $content = new MessageContent();
         $content->location = [
             'latitude' => '37.778326',
             'longitude' => '-122.394648',

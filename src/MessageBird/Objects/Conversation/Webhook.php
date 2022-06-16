@@ -4,6 +4,7 @@ namespace MessageBird\Objects\Conversation;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
+use stdClass;
 
 /**
  * Webhooks enable real-time notifications of conversation events to be
@@ -25,14 +26,14 @@ class Webhook extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $id;
+    public string $id;
 
     /**
      * The URL of this webhook object.
      *
      * @var string
      */
-    public $href;
+    public string $href;
 
     /**
      * The unique identifier for a MessageBird channel taht this webhook will
@@ -40,7 +41,7 @@ class Webhook extends Base implements JsonSerializable
      *
      * @var string
      */
-    public $channelId;
+    public string $channelId;
 
     /**
      * A list of event name strings from the list of available events that
@@ -49,31 +50,78 @@ class Webhook extends Base implements JsonSerializable
      *
      * @var array
      */
-    public $events;
+    public array $events;
 
     /**
      * The endpoint URL that requests are sent to.
      *
      * @var string
      */
-    public $url;
+    public string $url;
+
+    /**
+     * The status of the webhook. Possible values are: 'enabled', 'disabled'
+     * @var string
+     */
+    public string $status;
+
+    /**
+     * @var WebhookSettings
+     */
+    public WebhookSettings $settings;
 
     /**
      * The date and time when this webhook was first created in RFC3339 format.
      *
      * @var string
      */
-    public $createdDatetime;
+    public string $createdDatetime;
 
     /**
      * The date and time when this webhook was last updated in RFC3339 format.
      *
      * @var string
      */
-    public $updatedDatetime;
+    public string $updatedDatetime;
 
     /**
-     * Serialize only non empty fields.
+     * @inheritDoc
+     * @param $object
+     * @return Base
+     */
+    public function loadFromArray($object): Base
+    {
+        parent::loadFromArray($object);
+
+        if (!empty($object->settings)) {
+            $settings = new WebhookSettings();
+            $settings->loadFromArray($object->settings);
+            $this->settings = $settings;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     * @param stdClass $object
+     * @return self
+     */
+    public function loadFromStdclass(stdClass $object): Base
+    {
+        parent::loadFromStdclass($object);
+
+        if (!empty($object->settings)) {
+            $settings = new WebhookSettings();
+            $settings->loadFromStdclass($object->settings);
+            $object->settings = $settings;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return array
      */
     public function jsonSerialize(): array
     {
