@@ -43,6 +43,11 @@ class Contact extends Base
     public $lastName;
 
     /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
      * An associative array containing additional details about this contact.
      *
      * @var array
@@ -67,7 +72,7 @@ class Contact extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
      */
     public function loadFromArray($object): Contact

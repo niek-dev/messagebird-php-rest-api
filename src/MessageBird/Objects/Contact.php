@@ -29,6 +29,14 @@ class Contact extends Base
      * @var string
      */
     public $lastName;
+
+    /**
+     * The display name of the contact.
+     *
+     * @var string
+     */
+    public $displayName;
+
     /**
      * @var string
      */
@@ -129,26 +137,26 @@ class Contact extends Base
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclass()}
-     * 
+     *
      * @param mixed $object
      */
     public function loadFromArray($object): self
     {
         unset($this->custom1, $this->custom2, $this->custom3, $this->custom4);
-        
+
         return parent::loadFromArray($object);
     }
 
     public function loadFromStdclass(stdClass $object): self
     {
         unset($this->custom1, $this->custom2, $this->custom3, $this->custom4);
-        
+
         return parent::loadFromStdclass($object);
     }
 
     /**
      * @deprecated 2.2.0 No longer used by internal code, please switch to {@see self::loadFromStdclassForGroups()}
-     * 
+     *
      * @param mixed $object
      *
      * @return $this ->object
