@@ -16,6 +16,7 @@ class Client
     public const VOICEAPI_ENDPOINT = 'https://voice.messagebird.com';
     public const PARTNER_ACCOUNT_ENDPOINT = 'https://partner-accounts.messagebird.com';
     public const NUMBERSAPI_ENDPOINT = 'https://numbers.messagebird.com/v1';
+    public const INTEGRATIONS_API_ENDPOINT = 'https://integrations.messagebird.com';
 
     public const ENABLE_CONVERSATIONSAPI_WHATSAPP_SANDBOX = 'ENABLE_CONVERSATIONSAPI_WHATSAPP_SANDBOX';
     public const CONVERSATIONSAPI_WHATSAPP_SANDBOX_ENDPOINT = 'https://whatsapp-sandbox.messagebird.com/v1';
@@ -147,6 +148,12 @@ class Client
      */
     protected $numbersAPIClient;
 
+    /**
+     * @var HttpClient
+     */
+    protected $integrationsAPIClient;
+
+
     public function __construct(?string $accessKey = null, Common\HttpClient $httpClient = null, array $config = [])
     {
         if ($httpClient === null) {
@@ -163,12 +170,14 @@ class Client
             ]);
             $this->partnerAccountClient = new Common\HttpClient(self::PARTNER_ACCOUNT_ENDPOINT);
             $this->numbersAPIClient = new Common\HttpClient(self::NUMBERSAPI_ENDPOINT);
+            $this->integrationsAPIClient = new Common\HttpClient(self::INTEGRATIONS_API_ENDPOINT);
         } else {
             $this->conversationsAPIHttpClient = $httpClient;
             $this->httpClient = $httpClient;
             $this->voiceAPIHttpClient = $httpClient;
             $this->partnerAccountClient = $httpClient;
             $this->numbersAPIClient = $httpClient;
+            $this->integrationsAPIClient = $httpClient;
         }
 
         $this->httpClient->addUserAgentString('MessageBird/ApiClient/' . self::CLIENT_VERSION);
@@ -185,6 +194,9 @@ class Client
 
         $this->numbersAPIClient->addUserAgentString('MessageBird/ApiClient/' . self::CLIENT_VERSION);
         $this->numbersAPIClient->addUserAgentString($this->getPhpVersion());
+
+        $this->integrationsAPIClient->addUserAgentString('MessageBird/ApiClient/' . self::CLIENT_VERSION);
+        $this->integrationsAPIClient->addUserAgentString($this->getPhpVersion());
 
         if ($accessKey !== null) {
             $this->setAccessKey($accessKey);
@@ -238,5 +250,6 @@ class Client
         $this->voiceAPIHttpClient->setAuthentication($authentication);
         $this->partnerAccountClient->setAuthentication($authentication);
         $this->numbersAPIClient->setAuthentication($authentication);
+        $this->integrationsAPIClient->setAuthentication($authentication);
     }
 }
