@@ -10,10 +10,11 @@ class MessageContentWhatsAppInteractive extends Base implements JsonSerializable
 {
 
     public const TYPE_LIST = 'list';
+    public const TYPE_LIST_REPLY = 'list_reply';
     public const TYPE_BUTTON = 'button';
+    public const TYPE_BUTTON_REPLY = 'button_reply';
     public const TYPE_PRODUCT = 'product';
     public const TYPE_PRODUCT_LIST = 'product_list';
-    public const TYPE_BUTTON_REPLY = 'button_reply';
 
     /**
      * Interactive message type.
