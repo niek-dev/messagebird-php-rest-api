@@ -2,7 +2,10 @@
 
 namespace MessageBird\Objects\Conversation\HSM;
 
-class Language
+use JsonSerializable;
+use MessageBird\Objects\Base;
+
+class Language extends Base implements JsonSerializable
 {
     // Will deliver the message template in the user's device language. If the settings can't be found on the user's
     // device the fallback language is used.
@@ -24,4 +27,20 @@ class Language
      * @var string $code
      */
     public $code;
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        $json = [];
+
+        foreach (get_object_vars($this) as $key => $value) {
+            if (!empty($value)) {
+                $json[$key] = $value;
+            }
+        }
+
+        return $json;
+    }
 }

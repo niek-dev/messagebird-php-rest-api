@@ -5,17 +5,14 @@ namespace MessageBird\Objects\Conversation\HSM;
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-class Currency extends Base implements JsonSerializable
+class MediaMessageParam extends Base implements JsonSerializable
 {
     /**
-     * @var string $code
+     * The URL of the remote media file.
+     *
+     * @var string $url
      */
-    public $code;
-
-    /**
-     * @var int $amount
-     */
-    public $amount;
+    public $url;
 
     /**
      * @return array

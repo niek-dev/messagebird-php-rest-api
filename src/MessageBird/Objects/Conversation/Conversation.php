@@ -107,7 +107,6 @@ class Conversation extends Base
         if (!empty($this->contact)) {
             $newContact = new Contact();
             $newContact->loadFromArray($this->contact);
-
             $this->contact = $newContact;
         }
 
