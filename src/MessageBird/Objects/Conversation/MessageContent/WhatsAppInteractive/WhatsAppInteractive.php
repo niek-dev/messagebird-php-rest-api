@@ -1,12 +1,12 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\WhatsAppInteractive;
+namespace MessageBird\Objects\Conversation\MessageContent\WhatsAppInteractive;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 use stdClass;
 
-class MessageContentWhatsAppInteractive extends Base implements JsonSerializable
+class WhatsAppInteractive extends Base implements JsonSerializable
 {
 
     public const TYPE_LIST = 'list';

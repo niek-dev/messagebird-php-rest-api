@@ -3,7 +3,7 @@
 namespace Tests\Integration\Conversation;
 
 use MessageBird\Objects\Conversation\Message;
-use MessageBird\Objects\Conversation\MessageContent;
+use MessageBird\Objects\Conversation\MessageContent\MessageContent;
 use Tests\Integration\BaseTest;
 
 class ConversationMessageTest extends BaseTest

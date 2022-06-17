@@ -6,24 +6,24 @@ require(__DIR__ . '/../../autoload.php');
 
 $messageBird = new \MessageBird\Client('YOUR_ACCESS_KEY'); // Set your own API access key here.
 
-$hsmParam1 = new \MessageBird\Objects\Conversation\HSM\Params();
+$hsmParam1 = new \MessageBird\Objects\Conversation\MessageContent\HSM\Params();
 $hsmParam1->default = 'YOUR FIRST TEMPLATE PARAM VALUE';
 
-$hsmParam2 = new \MessageBird\Objects\Conversation\HSM\Params();
+$hsmParam2 = new \MessageBird\Objects\Conversation\MessageContent\HSM\Params();
 $hsmParam2->default = 'YOUR SECOND TEMPLATE PARAM VALUE';
 
-$hsmLanguage = new \MessageBird\Objects\Conversation\HSM\Language();
-$hsmLanguage->policy = \MessageBird\Objects\Conversation\HSM\Language::DETERMINISTIC_POLICY;
+$hsmLanguage = new \MessageBird\Objects\Conversation\MessageContent\HSM\Language();
+$hsmLanguage->policy = \MessageBird\Objects\Conversation\MessageContent\HSM\Language::DETERMINISTIC_POLICY;
 //$hsmLanguage->policy = \MessageBird\Objects\Conversation\HSM\Language::FALLBACK_POLICY;
 $hsmLanguage->code = 'YOUR LANGUAGE CODE';
 
-$hsm = new \MessageBird\Objects\Conversation\HSM\Message();
+$hsm = new \MessageBird\Objects\Conversation\MessageContent\HSM\HSM();
 $hsm->templateName = 'YOUR TEMPLATE NAME';
 $hsm->namespace = 'YOUR NAMESPACE';
 $hsm->params = [$hsmParam1, $hsmParam2];
 $hsm->language = $hsmLanguage;
 
-$content = new \MessageBird\Objects\Conversation\MessageContent();
+$content = new \MessageBird\Objects\Conversation\MessageContent\MessageContent();
 $content->hsm = $hsm;
 
 $message = new \MessageBird\Objects\Conversation\Message();

@@ -4,6 +4,7 @@ namespace MessageBird\Objects\Conversation;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
+use MessageBird\Objects\Conversation\MessageContent\MessageContent;
 
 /**
  * Messages that have been sent by, or received from, a customer are

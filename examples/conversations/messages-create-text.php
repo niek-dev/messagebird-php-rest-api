@@ -8,14 +8,14 @@ require(__DIR__ . '/../../autoload.php');
 
 $messageBird = new \MessageBird\Client('YOUR_ACCESS_KEY'); // Set your own API access key here.
 
-$content = new \MessageBird\Objects\Conversation\MessageContent();
+$content = new \MessageBird\Objects\Conversation\MessageContent\MessageContent();
 $content->text = 'Hello world';
 
 $message = new \MessageBird\Objects\Conversation\Message();
 $message->channelId = 'CHANNEL_ID';
 $message->content = $content;
 $message->to = 'RECIPIENT';
-$message->type = \MessageBird\Objects\Conversation\MessageContent::TYPE_TEXT;
+$message->type = \MessageBird\Objects\Conversation\MessageContent\MessageContent::TYPE_TEXT;
 
 try {
     $conversation = $messageBird->conversationMessages->create(

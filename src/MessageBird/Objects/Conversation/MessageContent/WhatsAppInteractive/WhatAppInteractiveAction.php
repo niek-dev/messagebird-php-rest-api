@@ -1,6 +1,6 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\WhatsAppInteractive;
+namespace MessageBird\Objects\Conversation\MessageContent\WhatsAppInteractive;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;

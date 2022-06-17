@@ -1,15 +1,20 @@
 <?php
 
-namespace MessageBird\Objects\Conversation;
+namespace MessageBird\Objects\Conversation\MessageContent\WhatsAppInteractive;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-class MessageContentWhatsAppSticker extends Base implements JsonSerializable
+
+class WhatAppInteractiveReply extends Base implements JsonSerializable
 {
 
-    /** @var string $link */
-    public $link;
+    /** @var string $id */
+    public $id;
+    /** @var string $text */
+    public $text;
+    /** @var string $description */
+    public $description;
 
     /**
      * @return array
@@ -26,4 +31,5 @@ class MessageContentWhatsAppSticker extends Base implements JsonSerializable
 
         return $json;
     }
+
 }

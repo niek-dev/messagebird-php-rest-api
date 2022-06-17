@@ -7,7 +7,7 @@ use MessageBird\Objects\Conversation\Channel;
 use MessageBird\Objects\Conversation\Contact;
 use MessageBird\Objects\Conversation\Conversation;
 use MessageBird\Objects\Conversation\Message;
-use MessageBird\Objects\Conversation\MessageContent;
+use MessageBird\Objects\Conversation\MessageContent\MessageContent;
 use MessageBird\Objects\Conversation\MessageReference;
 use Tests\Integration\BaseTest;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\HSM;
+namespace MessageBird\Objects\Conversation\MessageContent\HSM;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;

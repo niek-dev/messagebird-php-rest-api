@@ -1,18 +1,16 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\HSM;
+namespace MessageBird\Objects\Conversation\MessageContent\WhatsAppInteractive;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-class MediaMessageParam extends Base implements JsonSerializable
+class WhatsAppInteractiveMedia extends Base implements JsonSerializable
 {
-    /**
-     * The URL of the remote media file.
-     *
-     * @var string $url
-     */
+    /** @var string  */
     public $url;
+    /** @var string  */
+    public $caption;
 
     /**
      * @return array

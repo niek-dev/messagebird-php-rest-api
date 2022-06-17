@@ -1,16 +1,18 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\WhatsAppInteractive;
+namespace MessageBird\Objects\Conversation\MessageContent;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-
-class WhatAppInteractiveBody extends Base implements JsonSerializable
+class Location extends Base implements JsonSerializable
 {
 
-    /** @var string  */
-    public $text;
+    /** @var string $latitude */
+    public $latitude;
+
+    /** @var string $longitude */
+    public $longitude;
 
     /**
      * @return array
@@ -27,5 +29,4 @@ class WhatAppInteractiveBody extends Base implements JsonSerializable
 
         return $json;
     }
-
 }

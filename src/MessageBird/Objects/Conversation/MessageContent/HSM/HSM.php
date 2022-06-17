@@ -1,11 +1,11 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\HSM;
+namespace MessageBird\Objects\Conversation\MessageContent\HSM;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-class Message extends Base implements JsonSerializable
+class HSM extends Base implements JsonSerializable
 {
     /**
      * Required. WhatsApp namespace for your account. You will receive this value when setting up your WhatsApp account.

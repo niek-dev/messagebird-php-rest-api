@@ -1,11 +1,13 @@
 <?php
 
-namespace MessageBird\Objects\Conversation;
+namespace MessageBird\Objects\Conversation\MessageContent;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
-use MessageBird\Objects\Conversation\HSM\Message as HSMMessage;
-use MessageBird\Objects\Conversation\WhatsAppInteractive\MessageContentWhatsAppInteractive;
+use MessageBird\Objects\Conversation\MessageContent\HSM\HSM as HSMMessage;
+use MessageBird\Objects\Conversation\MessageContent\WhatsAppInteractive\WhatsAppInteractive;
+use MessageBird\Objects\Conversation\MessageContent\WhatsAppOrder\WhatsAppOrder;
+use MessageBird\Objects\Conversation\MessageContent\WhatsAppText\WhatsAppText;
 use stdClass;
 
 /**
@@ -22,29 +24,31 @@ class MessageContent extends Base implements JsonSerializable
     public const TYPE_HSM = 'hsm';
     public const TYPE_INTERACTIVE = 'interactive';
     public const TYPE_WHATSAPP_STICKER = 'whatsappSticker';
+    public const TYPE_WHATSAPP_ORDER = 'whatsappOrder';
+    public const TYPE_WHATSAPP_TEXT = 'whatsappText';
 
     /**
-     * @var MessageContentMedia $audio
+     * @var Media $audio
      */
     public $audio;
 
     /**
-     * @var MessageContentMedia $file
+     * @var Media $file
      */
     public $file;
 
     /**
-     * @var MessageContentMedia $image
+     * @var Media $image
      */
     public $image;
 
     /**
-     * @var MessageContentMedia $video
+     * @var Media $video
      */
     public $video;
 
     /**
-     * @var MessageContentLocation $location
+     * @var Location $location
      */
     public $location;
 
@@ -54,19 +58,39 @@ class MessageContent extends Base implements JsonSerializable
     public $text;
 
     /**
+     * WhatsApp Template message (Highly Structured Message)	Outbound
+     *
      * @var HSMMessage $hsm
      */
     public $hsm;
 
     /**
-     * @var MessageContentWhatsAppInteractive $interactive
+     * WhatsApp interactive message.	Outbound
+     *
+     * @var WhatsAppInteractive $interactive
      */
     public $interactive;
 
     /**
-     * @var MessageContentWhatsAppSticker $whatsappSticker
+     * 	WhatsApp sticker message.	Inbound/outbound
+     *
+     * @var WhatsAppSticker $whatsappSticker
      */
     public $whatsappSticker;
+
+    /**
+     * WhatsApp order message.	Inbound
+     *
+     * @var WhatsAppOrder $whatsappOrder
+     */
+    public $whatsappOrder;
+
+    /**
+     * WhatsApp product question message. Inbound
+     *
+     * @var WhatsAppText $whatsappText
+     */
+    public $whatsappText;
 
 
     /**
@@ -86,45 +110,57 @@ class MessageContent extends Base implements JsonSerializable
         }
 
         if (!empty($object->location)) {
-            $location = new MessageContentLocation();
+            $location = new Location();
             $location->loadFromArray($object->location);
             $this->location = $location;
         }
 
         if (!empty($object->audio)){
-            $audio = new MessageContentMedia();
+            $audio = new Media();
             $audio->loadFromArray($object->audio);
             $this->audio = $audio;
         }
 
         if (!empty($object->file)){
-            $file = new MessageContentMedia();
+            $file = new Media();
             $file->loadFromArray($object->file);
             $this->file = $file;
         }
 
         if (!empty($object->image)){
-            $image = new MessageContentMedia();
+            $image = new Media();
             $image->loadFromArray($object->image);
             $this->image = $image;
         }
 
         if (!empty($object->video)){
-            $video = new MessageContentMedia();
+            $video = new Media();
             $video->loadFromArray($object->video);
             $this->video = $video;
         }
 
         if (!empty($object->whatsappSticker)){
-            $whatsappSticker = new MessageContentWhatsAppSticker();
+            $whatsappSticker = new WhatsAppSticker();
             $whatsappSticker->loadFromArray($object->whatsappSticker);
             $this->whatsappSticker = $whatsappSticker;
         }
 
         if (!empty($object->interactive)){
-            $interactive = new MessageContentWhatsAppInteractive();
+            $interactive = new WhatsAppInteractive();
             $interactive->loadFromArray($object->interactive);
             $this->interactive = $interactive;
+        }
+
+        if (!empty($object->whatsappOrder)) {
+            $whatsAppOrder = new WhatsAppOrder();
+            $whatsAppOrder->loadFromArray($object->whatsappOrder);
+            $this->whatsappOrder = $whatsAppOrder;
+        }
+
+        if (!empty($object->whatsappText)) {
+            $whatsAppText = new WhatsAppText();
+            $whatsAppText->loadFromArray($object->whatsappText);
+            $this->whatsappText = $whatsAppText;
         }
 
         return $this;
@@ -147,45 +183,57 @@ class MessageContent extends Base implements JsonSerializable
         }
 
         if (!empty($object->location)) {
-            $location = new MessageContentLocation();
+            $location = new Location();
             $location->loadFromStdclass($object->location);
             $this->location = $location;
         }
 
         if (!empty($object->audio)){
-            $audio = new MessageContentMedia();
+            $audio = new Media();
             $audio->loadFromStdclass($object->audio);
             $this->audio = $audio;
         }
 
         if (!empty($object->file)){
-            $file = new MessageContentMedia();
+            $file = new Media();
             $file->loadFromStdclass($object->file);
             $this->file = $file;
         }
 
         if (!empty($object->image)){
-            $image = new MessageContentMedia();
+            $image = new Media();
             $image->loadFromStdclass($object->image);
             $this->image = $image;
         }
 
         if (!empty($object->video)){
-            $video = new MessageContentMedia();
+            $video = new Media();
             $video->loadFromStdclass($object->video);
             $this->video = $video;
         }
 
         if (!empty($object->whatsappSticker)){
-            $whatsappSticker = new MessageContentWhatsAppSticker();
+            $whatsappSticker = new WhatsAppSticker();
             $whatsappSticker->loadFromStdclass($object->whatsappSticker);
             $this->whatsappSticker = $whatsappSticker;
         }
 
         if (!empty($object->interactive)){
-            $interactive = new MessageContentWhatsAppInteractive();
+            $interactive = new WhatsAppInteractive();
             $interactive->loadFromStdclass($object->interactive);
             $this->interactive = $interactive;
+        }
+
+        if (!empty($object->whatsappOrder)) {
+            $whatsAppOrder = new WhatsAppOrder();
+            $whatsAppOrder->loadFromStdclass($object->whatsappOrder);
+            $this->whatsappOrder = $whatsAppOrder;
+        }
+
+        if (!empty($object->whatsappText)) {
+            $whatsAppText = new WhatsAppText();
+            $whatsAppText->loadFromStdclass($object->whatsappText);
+            $this->whatsappText = $whatsAppText;
         }
 
         return $this;

@@ -1,18 +1,18 @@
 <?php
 
-namespace MessageBird\Objects\Conversation;
+namespace MessageBird\Objects\Conversation\MessageContent;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-class MessageContentLocation extends Base implements JsonSerializable
+class Media extends Base implements JsonSerializable
 {
 
-    /** @var string $latitude */
-    public $latitude;
+    /** @var string $url */
+    public $url;
 
-    /** @var string $longitude */
-    public $longitude;
+    /** @var string $caption */
+    public $caption;
 
     /**
      * @return array

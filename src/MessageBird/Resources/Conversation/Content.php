@@ -3,7 +3,7 @@
 namespace MessageBird\Resources\Conversation;
 
 use MessageBird\Common\HttpClient;
-use MessageBird\Objects\Conversation\MessageContent as ContentObject;
+use MessageBird\Objects\Conversation\MessageContent\MessageContent as ContentObject;
 use MessageBird\Resources\Base;
 
 class Content extends Base

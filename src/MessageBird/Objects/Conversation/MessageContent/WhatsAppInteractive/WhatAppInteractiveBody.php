@@ -1,21 +1,16 @@
 <?php
 
-namespace MessageBird\Objects\Conversation\HSM;
+namespace MessageBird\Objects\Conversation\MessageContent\WhatsAppInteractive;
 
 use JsonSerializable;
 use MessageBird\Objects\Base;
 
-class Currency extends Base implements JsonSerializable
-{
-    /**
-     * @var string $code
-     */
-    public $code;
 
-    /**
-     * @var int $amount
-     */
-    public $amount;
+class WhatAppInteractiveBody extends Base implements JsonSerializable
+{
+
+    /** @var string  */
+    public $text;
 
     /**
      * @return array
@@ -32,4 +27,5 @@ class Currency extends Base implements JsonSerializable
 
         return $json;
     }
+
 }
