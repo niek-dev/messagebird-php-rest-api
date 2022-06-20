@@ -252,4 +252,53 @@ class Client
         $this->numbersAPIClient->setAuthentication($authentication);
         $this->integrationsAPIClient->setAuthentication($authentication);
     }
+
+    /**
+     * @return HttpClient
+     */
+    public function getIntegrationsAPIClient(): HttpClient
+    {
+        return $this->integrationsAPIClient;
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getConversationsAPIHttpClient(): HttpClient
+    {
+        return $this->conversationsAPIHttpClient;
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getHttpClient(): HttpClient
+    {
+        return $this->httpClient;
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getVoiceAPIHttpClient(): HttpClient
+    {
+        return $this->voiceAPIHttpClient;
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getPartnerAccountClient(): HttpClient
+    {
+        return $this->partnerAccountClient;
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getNumbersAPIClient(): HttpClient
+    {
+        return $this->numbersAPIClient;
+    }
+
 }
