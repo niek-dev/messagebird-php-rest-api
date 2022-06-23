@@ -24,7 +24,7 @@ class Templates extends Base
         $body = json_encode($object, \JSON_THROW_ON_ERROR);
         [, , $body] = $this->httpClient->performHttpRequest(
             HttpClient::REQUEST_POST,
-            "/v2/$this->resourceName",
+            "v2/$this->resourceName",
             $query,
             $body
         );
@@ -36,7 +36,7 @@ class Templates extends Base
     {
         [$status, , $body] = $this->httpClient->performHttpRequest(
             HttpClient::REQUEST_GET,
-            "/v3/$this->resourceName",
+            "v3/$this->resourceName",
             $parameters
         );
 
