@@ -119,6 +119,11 @@ class Client
      * @var Resources\PartnerAccount\Accounts;
      */
     public $partnerAccounts;
+
+    /**
+     * @var Resources\Templates
+     */
+    public $templates;
     /**
      * @var string
      */
@@ -226,6 +231,7 @@ class Client
         $this->partnerAccounts = new Resources\PartnerAccount\Accounts($this->partnerAccountClient);
         $this->phoneNumbers = new Resources\PhoneNumbers($this->numbersAPIClient);
         $this->availablePhoneNumbers = new Resources\AvailablePhoneNumbers($this->numbersAPIClient);
+        $this->templates = new Resources\Templates($this->integrationsAPIClient);
     }
 
     private function getPhpVersion(): string
