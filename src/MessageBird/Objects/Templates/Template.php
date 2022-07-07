@@ -74,6 +74,18 @@ class Template extends Base
      * Alert updates
      */
     public const CATEGORY_ALERT_UPDATE = "ALERT_UPDATE";
+    /**
+     * Send promotional offers, product announcements, and more to increase awareness and engagement.
+     */
+    public const CATEGORY_MARKETING = "MARKETING";
+    /**
+     * Send codes that allow your customers to access their accounts.
+     */
+    public const CATEGORY_OTP = "OTP";
+    /**
+     * Send account updates, order updates, alerts, and more to share important information.
+     */
+    public const CATEGORY_TRANSACTIONAL = "TRANSACTIONAL";
 
     /**
      * Template unique UUID
