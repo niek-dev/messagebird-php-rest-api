@@ -15,13 +15,15 @@ class Language extends Base implements JsonSerializable
     public const DETERMINISTIC_POLICY = 'deterministic';
 
     /**
-     * It accepts FALLBACK_POLICY or DETERMINISTIC_POLICY.
+     * Default value: deterministic. The fallback value was deprecated in January 2020.
      *
      * @var string $policy
      */
     public $policy;
 
     /**
+     * Required. The code of the language or locale to use.
+     * It must correspond to one of the languages approved in the WhatsApp template you're using to send a message.
      * Code can be both language and language_locale formats (e.g. en and en_US).
      *
      * @var string $code

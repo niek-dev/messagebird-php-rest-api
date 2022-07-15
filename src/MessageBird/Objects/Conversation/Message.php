@@ -50,8 +50,8 @@ class Message extends Base implements JsonSerializable
 
     /**
      * The status of the message. Possible values: "pending", "received",
-     * "sent", "delivered", "read", "unsupported", "failed" and
-     * "pending_media".
+     * "sent", "delivered", "read", "unsupported", "failed" ,
+     * "pending_media", "rejected'
      *
      * @var string $status
      */
@@ -110,6 +110,12 @@ class Message extends Base implements JsonSerializable
     public $updatedDatetime;
 
     /**
+     * Error
+     * @var array
+     */
+    public $error;
+
+    /**
      * @inheritDoc
      * @param $object
      * @return $this
@@ -126,6 +132,10 @@ class Message extends Base implements JsonSerializable
 
         if (!empty($object->source)) {
             $this->source = json_decode(json_encode($object->source), true);
+        }
+
+        if (!empty($object->error)) {
+            $this->error = json_decode(json_encode($object->error), true);
         }
 
         return $this;
@@ -148,6 +158,10 @@ class Message extends Base implements JsonSerializable
 
         if (!empty($object->source)) {
             $this->source = json_decode(json_encode($object->source), true);
+        }
+
+        if (!empty($object->error)) {
+            $this->error = json_decode(json_encode($object->error), true);
         }
 
         return $this;
