@@ -8,17 +8,24 @@ use MessageBird\Objects\Base;
 class Params extends Base implements JsonSerializable
 {
     /**
+     * Required. Default value of the parameter, it is used when localization fails.
+     * The only field needed when specifying parameter value that doesn't require localization.
+     *
      * @var string $default
      */
     public $default;
 
     /**
+     * Can be present only if dateTime object is not present.
+     * An object of the form {"currencyCode": "required string of ISO 4217 currency code", "amount": "required integer of total amount together with cents as a float, multiplied by 1000"}
+     *
      * @var Currency $currency
      */
     public $currency;
 
     /**
-     * Date formatted as RFC3339
+     * Can be present only if currency object is not present.
+     * RFC3339 representation of the date and time.
      *
      * @var string $dateTime
      */
