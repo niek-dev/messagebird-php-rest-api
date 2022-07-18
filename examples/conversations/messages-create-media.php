@@ -16,7 +16,7 @@ $message = new \MessageBird\Objects\Conversation\Message();
 $message->channelId = 'CHANNEL_ID';
 $message->content = $content;
 $message->to = 'RECIPIENT_MSISDN';
-$message->type = \MessageBird\Objects\Conversation\MessageContent\MessageContent::TYPE_IMAGE; // 'image'
+$message->type = \MessageBird\Objects\Conversation\Message::TYPE_IMAGE; // 'image'
 
 try {
     // Using a contactId instead of a conversationId is also supported.

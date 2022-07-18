@@ -15,7 +15,7 @@ $message = new \MessageBird\Objects\Conversation\Message();
 $message->channelId = 'CHANNEL_ID';
 $message->content = $content;
 $message->to = 'RECIPIENT';
-$message->type = \MessageBird\Objects\Conversation\MessageContent\MessageContent::TYPE_TEXT;
+$message->type = \MessageBird\Objects\Conversation\Message::TYPE_TEXT;
 
 try {
     $conversation = $messageBird->conversationMessages->create(

@@ -15,17 +15,6 @@ use stdClass;
  */
 class MessageContent extends Base implements JsonSerializable
 {
-    public const TYPE_AUDIO = 'audio';
-    public const TYPE_FILE = 'file';
-    public const TYPE_IMAGE = 'image';
-    public const TYPE_LOCATION = 'location';
-    public const TYPE_TEXT = 'text';
-    public const TYPE_VIDEO = 'video';
-    public const TYPE_HSM = 'hsm';
-    public const TYPE_INTERACTIVE = 'interactive';
-    public const TYPE_WHATSAPP_STICKER = 'whatsappSticker';
-    public const TYPE_WHATSAPP_ORDER = 'whatsappOrder';
-    public const TYPE_WHATSAPP_TEXT = 'whatsappText';
 
     /**
      * @var Media $audio
