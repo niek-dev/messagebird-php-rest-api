@@ -61,7 +61,7 @@ class Flows extends Base
      * @throws \MessageBird\Exceptions\AuthenticateException
      * @throws \MessageBird\Exceptions\HttpException
      */
-    public function getListRaw(array $parameters): array
+    public function getListRaw(array $parameters = []): array
     {
         [$status, , $body] = $this->httpClient->performHttpRequest(
             HttpClient::REQUEST_GET,
