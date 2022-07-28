@@ -33,7 +33,7 @@ class Flows extends Base
             '',
             json_encode($json, JSON_THROW_ON_ERROR)
         );
-        return json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
+        return json_decode($body, true, 1024, \JSON_THROW_ON_ERROR);
     }
 
     /**
@@ -50,7 +50,7 @@ class Flows extends Base
             HttpClient::REQUEST_GET,
             "{$this->resourceName}/$flowId"
         );
-        return json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
+        return json_decode($body, true, 1024, \JSON_THROW_ON_ERROR);
     }
 
     /**
@@ -69,6 +69,6 @@ class Flows extends Base
             $parameters
         );
 
-        return json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
+        return json_decode($body, true, 1024, \JSON_THROW_ON_ERROR);
     }
 }
