@@ -19,19 +19,19 @@ class Flows extends Base
 
     /**
      * Create raw. Returns array
-     * @param array $json
+     * @param array|string $json
      * @return array
      * @throws \JsonException
      * @throws \MessageBird\Exceptions\AuthenticateException
      * @throws \MessageBird\Exceptions\HttpException
      */
-    public function createRaw(array $json): array
+    public function createRaw(array|string $json): array
     {
         [$status, , $body] = $this->httpClient->performHttpRequest(
             Common\HttpClient::REQUEST_POST,
             $this->resourceName,
             '',
-            json_encode($json, JSON_THROW_ON_ERROR)
+            is_array($json) ? json_encode($json, JSON_THROW_ON_ERROR) : $json
         );
         return json_decode($body, true, 1024, \JSON_THROW_ON_ERROR);
     }
