@@ -30,7 +30,7 @@ class Flows extends Base
         [$status, , $body] = $this->httpClient->performHttpRequest(
             Common\HttpClient::REQUEST_POST,
             $this->resourceName,
-            '',
+            null,
             is_array($json) ? json_encode($json, JSON_THROW_ON_ERROR) : $json
         );
         return json_decode($body, true, 1024, \JSON_THROW_ON_ERROR);
