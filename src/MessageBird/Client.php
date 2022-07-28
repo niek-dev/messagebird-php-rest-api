@@ -17,6 +17,7 @@ class Client
     public const PARTNER_ACCOUNT_ENDPOINT = 'https://partner-accounts.messagebird.com';
     public const NUMBERSAPI_ENDPOINT = 'https://numbers.messagebird.com/v1';
     public const INTEGRATIONS_API_ENDPOINT = 'https://integrations.messagebird.com';
+    public const FLOWS_API_ENDPOINT = 'https://flows.messagebird.com';
 
     public const ENABLE_CONVERSATIONSAPI_WHATSAPP_SANDBOX = 'ENABLE_CONVERSATIONSAPI_WHATSAPP_SANDBOX';
     public const CONVERSATIONSAPI_WHATSAPP_SANDBOX_ENDPOINT = 'https://whatsapp-sandbox.messagebird.com/v1';
@@ -124,6 +125,11 @@ class Client
      * @var Resources\Templates
      */
     public $templates;
+
+    /**
+     * @var Resources\Flows
+     */
+    public $flows;
     /**
      * @var string
      */
@@ -158,6 +164,11 @@ class Client
      */
     protected $integrationsAPIClient;
 
+    /**
+     * @var HttpClient
+     */
+    protected $flowsAPIClient;
+
 
     public function __construct(?string $accessKey = null, Common\HttpClient $httpClient = null, array $config = [])
     {
@@ -176,6 +187,7 @@ class Client
             $this->partnerAccountClient = new Common\HttpClient(self::PARTNER_ACCOUNT_ENDPOINT);
             $this->numbersAPIClient = new Common\HttpClient(self::NUMBERSAPI_ENDPOINT);
             $this->integrationsAPIClient = new Common\HttpClient(self::INTEGRATIONS_API_ENDPOINT);
+            $this->flowsAPIClient = new Common\HttpClient(self::FLOWS_API_ENDPOINT);
         } else {
             $this->conversationsAPIHttpClient = $httpClient;
             $this->httpClient = $httpClient;
@@ -183,6 +195,7 @@ class Client
             $this->partnerAccountClient = $httpClient;
             $this->numbersAPIClient = $httpClient;
             $this->integrationsAPIClient = $httpClient;
+            $this->flowsAPIClient = $httpClient;
         }
 
         $this->httpClient->addUserAgentString('MessageBird/ApiClient/' . self::CLIENT_VERSION);
@@ -202,6 +215,9 @@ class Client
 
         $this->integrationsAPIClient->addUserAgentString('MessageBird/ApiClient/' . self::CLIENT_VERSION);
         $this->integrationsAPIClient->addUserAgentString($this->getPhpVersion());
+
+        $this->flowsAPIClient->addUserAgentString('MessageBird/ApiClient/' . self::CLIENT_VERSION);
+        $this->flowsAPIClient->addUserAgentString($this->getPhpVersion());
 
         if ($accessKey !== null) {
             $this->setAccessKey($accessKey);
@@ -232,6 +248,7 @@ class Client
         $this->phoneNumbers = new Resources\PhoneNumbers($this->numbersAPIClient);
         $this->availablePhoneNumbers = new Resources\AvailablePhoneNumbers($this->numbersAPIClient);
         $this->templates = new Resources\Templates($this->integrationsAPIClient);
+        $this->flows = new Resources\Flows($this->flowsAPIClient);
     }
 
     private function getPhpVersion(): string
@@ -257,6 +274,7 @@ class Client
         $this->partnerAccountClient->setAuthentication($authentication);
         $this->numbersAPIClient->setAuthentication($authentication);
         $this->integrationsAPIClient->setAuthentication($authentication);
+        $this->flowsAPIClient->setAuthentication($authentication);
     }
 
     /**
@@ -305,6 +323,14 @@ class Client
     public function getNumbersAPIClient(): HttpClient
     {
         return $this->numbersAPIClient;
+    }
+
+    /**
+     * @return HttpClient
+     */
+    public function getFlowsAPIClient(): HttpClient
+    {
+        return $this->flowsAPIClient;
     }
 
 }
