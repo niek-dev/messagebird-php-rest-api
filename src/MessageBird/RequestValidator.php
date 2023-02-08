@@ -3,10 +3,10 @@
 namespace MessageBird;
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use MessageBird\Exceptions\ValidationException;
 use MessageBird\Objects\SignedRequest;
-
 use function base64_decode;
 use function hash;
 use function hash_equals;
@@ -14,7 +14,6 @@ use function hash_hmac;
 use function http_build_query;
 use function implode;
 use function ksort;
-use function time;
 
 /**
  * Class RequestValidator validates request signature signed by MessageBird services.
@@ -139,7 +138,21 @@ class RequestValidator
 
         JWT::$leeway = $jwtLeeway;
         try {
-            $decoded = JWT::decode($signature, $this->signingKey, self::ALLOWED_ALGOS);
+            $headb64 = \explode('.', $signature)[0];
+            $headerRaw = JWT::urlsafeB64Decode($headb64);
+            $header = JWT::jsonDecode($headerRaw);
+
+            $key = [];
+            if ($header && property_exists($header, 'alg')) {
+                if (!in_array(strtoupper($header->alg), self::ALLOWED_ALGOS, true)) {
+                    throw new ValidationException('Algorithm not supported');
+                }
+
+                $key = new Key($this->signingKey, $header->alg);
+            }
+
+            $decoded = JWT::decode($signature, $key);
+
         } catch (\InvalidArgumentException | \UnexpectedValueException | SignatureInvalidException $e) {
             throw new ValidationException($e->getMessage(), $e->getCode(), $e);
         }
